@@ -21,6 +21,14 @@ class App extends Component {
         important: true,
         active: true,
         finishDate: null
+      },
+      {
+        id: 2,
+        text: "buy beer",
+        date: "2019-09-27",
+        important: true,
+        active: false,
+        finishDate: null
       }
     ]
   };
