@@ -10,7 +10,7 @@ class App extends Component {
         id: 0,
         text: "ssome string",
         date: "2019-12-30",
-        important: true,
+        important: false,
         active: true,
         finishDate: null
       },
@@ -18,7 +18,7 @@ class App extends Component {
         id: 1,
         text: "shopping",
         date: "2019-10-30",
-        important: true,
+        important: false,
         active: true,
         finishDate: null
       },
@@ -27,7 +27,7 @@ class App extends Component {
         text: "buy beer",
         date: "2019-09-27",
         important: true,
-        active: false,
+        active: true,
         finishDate: null
       }
     ]
