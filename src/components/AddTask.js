@@ -1,12 +1,23 @@
 import React, { Component } from "react";
 import "./AddTask.css";
 class AddTask extends Component {
+  minDate = new Date().toISOString().slice(0, 10);
   state = {
     text: "",
     checked: false,
-    date: "2019-09-29"
+    date: this.minDate
   };
+
+  handleDate = event => {
+    this.setState({
+      date: event.target.value
+    });
+  };
+
   render() {
+    let maxDate = this.minDate.slice(0, 4) * 1 + 1; //cut only the year (string) muliply by one gives silent conversion to number add one to get next year (number).
+    maxDate = maxDate + "-12-31"; //silent conversion back to string
+
     return (
       <div className="form">
         <input
@@ -22,8 +33,9 @@ class AddTask extends Component {
           type="date"
           id="deadline"
           value={this.state.date}
-          min="2019-09-29"
-          max="2019-12-30"
+          min={this.minDate}
+          max={maxDate}
+          onChange={this.handleDate}
         />{" "}
         <br />
         <button>Add task</button>
