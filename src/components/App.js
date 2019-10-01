@@ -4,6 +4,7 @@ import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 
 class App extends Component {
+  counter = 9;
   state = {
     tasks: [
       {
@@ -25,6 +26,46 @@ class App extends Component {
       {
         id: 2,
         text: "buy beer",
+        date: "2019-09-27",
+        important: true,
+        active: true,
+        finishDate: null
+      },
+      {
+        id: 3,
+        text: "buy more beer",
+        date: "2019-09-27",
+        important: true,
+        active: true,
+        finishDate: null
+      },
+      {
+        id: 4,
+        text: "visit Tom",
+        date: "2019-09-27",
+        important: true,
+        active: true,
+        finishDate: null
+      },
+      {
+        id: 5,
+        text: "find gypsy tresure",
+        date: "2019-09-27",
+        important: true,
+        active: true,
+        finishDate: null
+      },
+      {
+        id: 6,
+        text: "take some gypsy tears",
+        date: "2019-09-27",
+        important: true,
+        active: true,
+        finishDate: null
+      },
+      {
+        id: 7,
+        text: "replace front left bulb",
         date: "2019-09-27",
         important: true,
         active: true,
@@ -62,11 +103,29 @@ class App extends Component {
     });
   };
 
+  addTask = (text, date, important) => {
+    // console.log("object added in App");
+    const task = {
+      id: this.counter,
+      text, //text from input
+      date, //text from input
+      important, //value from input
+      active: true,
+      finishDate: null
+    };
+    this.counter++;
+    // console.log(task, this.counter);
+    this.setState(prevState => ({
+      tasks: [...prevState.tasks, task]
+    }));
+    return true;
+  };
+
   render() {
     return (
       <div className="App">
         <h1>TO DO APP</h1>
-        <AddTask />
+        <AddTask add={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
           delete={this.deleteTask}

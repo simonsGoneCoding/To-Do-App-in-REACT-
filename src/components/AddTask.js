@@ -26,6 +26,23 @@ class AddTask extends Component {
     });
   };
 
+  handleClick = () => {
+    const { date, text, checked } = this.state;
+    // console.log("click in AddTask");
+    if (text.length > 2) {
+      const add = this.props.add(text, date, checked);
+      if (add) {
+        this.setState({
+          text: "",
+          checked: false,
+          date: this.minDate
+        });
+      }
+    } else {
+      alert("string must contain at least 3 letters");
+    }
+  };
+
   render() {
     let maxDate = this.minDate.slice(0, 4) * 1 + 1; //cut only the year (string) muliply by one gives silent conversion to number add one to get next year (number).
     maxDate = maxDate + "-12-31"; //silent conversion back to string
